@@ -1,0 +1,1 @@
+web: target/universal/stage/bin/tsp_solver -Dconfig.file=conf/applicationProd.conf -Ddefault.username=${USERNAME_DB} -Ddefault.password=${PASSWORD_DB} -Dplay.crypto.secret=${APPLICATION_SECRET}

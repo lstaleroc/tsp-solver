@@ -3,7 +3,15 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
+GET     /                               controllers.HomeController.index
+GET     /itt                            controllers.HomeController.index
+GET     /itt/                           controllers.HomeController.index
+
+GET     /itt/login                      controllers.core.user.UserController.loginForm
+POST    /itt/login                      controllers.core.user.UserController.login
+GET     /itt/logout                     controllers.core.user.UserController.logout
+
+GET     /itt/map                        controllers.supplier.SupplierController.mainMapPage
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

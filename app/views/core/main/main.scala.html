@@ -1,0 +1,11 @@
+@import views.html.core.main.mainHead
+@import views.html.core.main.mainBody
+@import views.html.core.main.mainFooter
+@(body: Html)
+@import scala.Predef; val username : String = ctx.session().get("username")
+<!DOCTYPE html>
+<html>
+    @mainHead()
+    @mainBody(body, username)
+    @mainFooter()
+</html>
