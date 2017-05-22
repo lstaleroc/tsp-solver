@@ -1,0 +1,122 @@
+@(body: Html, username : String)
+
+<body class="">
+
+    <div class="page-wrapper">
+
+        <header class="header header-minimal">
+            <div class="header-wrapper">
+                <div class="container-fluid">
+                    <div class="header-inner">
+                        <div class="header-logo">
+                            <a href="@controllers.routes.HomeController.index()">
+                                <img src="@routes.Assets.versioned("images/logo.png")" alt="Logo">
+                                <span>ITT Rutas (Alpha)</span>
+                            </a>
+                        </div><!-- /.header-logo -->
+                        <div class="header-content">
+                            <div class="header-bottom">
+                                <div class="header-nav-user">
+                                    <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <div class="user-image">
+                                                <img src="@routes.Assets.versioned("images/agent-2.png")">
+                                                <div class="notification"></div>
+                                                    <!-- /.notification-->
+                                            </div>
+                                                <!-- /.user-image -->
+
+                                            <span class="header-nav-user-name">@username</span>
+                                            <i class="fa fa-chevron-down"></i>
+                                        </button>
+
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                            <li><a href="@controllers.core.user.routes.UserController.logout()">Cerrar sesión</a></li>
+                                        </ul>
+                                    </div>
+                                        <!-- /.dropdown -->
+                                </div>
+                                    <!-- /.header-nav-user -->
+
+                            </div>
+                                <!-- /.header-bottom -->
+                        </div>
+                            <!-- /.header-content -->
+                    </div>
+                        <!-- /.header-inner -->
+                </div>
+                    <!-- /.container -->
+            </div>
+                <!-- /.header-wrapper -->
+
+            <div class="header-statusbar">
+                <div class="header-statusbar-inner">
+                    <div class="header-statusbar-left">
+                        <h1>Dashboard</h1>
+                    </div>
+                        <!-- /.header-statusbar-left -->
+                </div>
+                    <!-- /.header-statusbar-inner -->
+            </div>
+                <!-- /.header-statusbar -->
+        </header>
+            <!-- /.header -->
+
+        <div class="main">
+            <div class="outer-admin">
+                <div class="wrapper-admin">
+                    <div class="sidebar-admin">
+                        <ul>
+                            <li class="active"><a href="@controllers.supplier.routes.SupplierController.mainMapPage()"><i class="fa fa-map"></i></a></li>
+                        </ul>
+                    </div>
+                        <!-- /.sidebar-admin-->
+
+                    <div class="content-admin">
+                        <div class="content-admin-wrapper">
+                            <div class="content-admin-main">
+                                <div class="content-admin-main-inner">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="message">
+                                                            <h1>Optimizador rutas</h1>
+                                                            <p>Seleccione los proveedores de la lista para trazar la ruta mas corta.</p>
+                                                        </div>
+                                                            <!-- /.message -->
+                                                    </div>
+                                                        <!-- /.col-* -->
+                                                </div>
+                                                    <!-- /.row -->
+
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-lg-12">
+                                                        @body
+                                                    </div>
+                                                            <!-- /.row -->
+                                                </div>
+                                                        <!-- /.col-* -->
+
+                                                </div>
+                                                    <!-- /.row -->
+
+                                            </div>
+                                                <!-- /.col-* -->
+
+                                        </div>
+                                    </div>
+                                        <!-- /.container-fluid -->
+                                </div>
+                                    <!-- /.content-admin-main-inner -->
+                            </div>
+                                <!-- /.content-admin-main -->
+                        </div>
+                            <!-- /.content-admin-wrapper -->
+                    </div>
+                        <!-- /.content-admin -->
+                </div>
+                    <!-- /.wrapper-admin -->
+            </div>
+                <!-- /.outer-admin -->

@@ -1,0 +1,26 @@
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="basePU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <non-jta-data-source>BaseDS</non-jta-data-source>
+        <!-- Init Core Entities -->
+        <class>models.core.user.entities.User</class>
+        <class>models.supplier.entities.Supplier</class>
+        <!-- End Core Entities -->
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+            <!-- Enable Hibernate's automatic session context management -->
+            <property name="hibernate.current_session_context_class" value="thread"/>
+            <!-- Disable the second-level cache -->
+            <!-- <property name="hibernate.cache.provider_class" value="org.hibernate.cache.internal.NoCacheProvider"
+            /> -->
+            <!-- Echo all executed SQL to stdout -->
+            <property name="hibernate.show_sql" value="false"/>
+            <!-- Drop and re-create the database schema on startup -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,72 @@
+@import views.html.core.main.mainHead
+@import views.html.core.main.mainFooter
+@import helper._
+@(form: Form[forms.UserForm])
+
+<!DOCTYPE html>
+<html>
+    @mainHead()
+<body class="">
+
+    <div class="page-wrapper">
+
+        <header class="header">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="header-inner">
+                        <div class="header-logo">
+                            <a href="@controllers.routes.HomeController.index()">
+                                <img src="@routes.Assets.versioned("images/logo.png")" alt="Logo">
+                                <span>ITT Rutas (Alpha)</span>
+                            </a>
+                        </div><!-- /.header-logo -->
+                    </div><!-- /.header-inner -->
+                </div><!-- /.container -->
+            </div><!-- /.header-wrapper -->
+        </header><!-- /.header -->
+
+
+        <div class="main">
+            <div class="main-inner">
+                <div class="container">
+                    <div class="content">
+
+
+                        <div class="row">
+                            <div class="col-sm-4 col-sm-offset-4">
+                                <div class="page-title">
+                                    <h1>Login</h1>
+                                </div><!-- /.page-title -->
+                                @helper.form(controllers.core.user.routes.UserController.login()) {
+                                    @CSRF.formField
+                                    @if(form.hasGlobalErrors) {
+                                        <div class="alert alert-icon alert-dismissible alert-danger" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                            </button>
+                                            <span >@form.globalError.message</span>
+                                        </div>
+                                    }
+                                    <div class="form-group">
+                                        <label for="login-form-email">E-mail</label>
+                                        <input type="email" autocomplete="off" class="form-control" name="email" id="login-form-email">
+                                    </div>
+                                        <!-- /.form-group -->
+
+                                    <div class="form-group">
+                                        <label for="login-form-password">Password</label>
+                                        <input type="password" class="form-control" name="password" id="login-form-password">
+                                    </div>
+                                        <!-- /.form-group -->
+
+                                    <button type="submit" autocomplete="off" class="btn btn-primary pull-right">Login</button>
+                                }
+                            </div><!-- /.col-sm-4 -->
+                        </div><!-- /.row -->
+
+                    </div><!-- /.content -->
+                </div><!-- /.container -->
+            </div><!-- /.main-inner -->
+        </div><!-- /.main -->
+        @mainFooter()
+</html>

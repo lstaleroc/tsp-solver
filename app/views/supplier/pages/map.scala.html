@@ -1,0 +1,36 @@
+@(suppliers : List[views.supplier.dto.SupplierDTO])
+@import views.html.core.main.main
+@main{
+        <div class="col-sm-8" id="map"></div>
+
+        <div class="col-sm-4">
+            <div id="right-panel">
+                <div>
+                    <b>Inicio recorrido:</b>
+                    <select id="start">
+                        <option value="4.640081,-74.060613">ITT Ingeniería</option>
+                    </select>
+                    <br>
+                    <b>Proveedores:</b> <br>
+                    <select multiple id="waypoints">
+                        @for(supplier <- suppliers) {
+                            <option value="@supplier.getValue">@supplier.getName</option>
+                        }
+                    </select>
+                    <br>
+                    <b>Fin recorrido:</b>
+                    <select id="end">
+                        <option value="4.640081,-74.060613">ITT Ingeniería</option>
+                    </select>
+                    <br>
+                    <input type="submit" id="submit">
+                </div>
+                <div id="directions-panel"></div>
+            </div>
+        </div><!-- /.col-* -->
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo1bD6F8qUEs9QZVfS4HvmTbXVGo5rxmM&callback=initMap">
+    </script>
+
+}
