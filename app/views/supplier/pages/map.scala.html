@@ -4,7 +4,7 @@
         <div class="col-sm-8" id="map"></div>
 
         <div class="col-sm-4">
-            <div id="right-panel">
+            <div class="mui-panel" id="right-panel">
                 <div>
                     <b>Inicio recorrido:</b>
                     <select id="start">
@@ -12,7 +12,7 @@
                     </select>
                     <br>
                     <b>Proveedores:</b> <br>
-                    <select multiple id="waypoints">
+                    <select class="selectpicker" multiple id="waypoints">
                         @for(supplier <- suppliers) {
                             <option value="@supplier.getValue">@supplier.getName</option>
                         }
@@ -23,9 +23,16 @@
                         <option value="4.640081,-74.060613">ITT Ingeniería</option>
                     </select>
                     <br>
-                    <input type="submit" id="submit">
+                    <input class="mui-btn mui-btn--primary" type="submit" id="submit" value="Buscar rutas">
                 </div>
-                <div id="directions-panel"></div>
+            </div>
+            <div class="mui-panel" id="summary-panel">
+                <div class="row">
+                    <div class="col-sm-6" id="tot-route-distance"></div>
+                    <div class="col-sm-6" id="tot-route-duration"></div>
+                </div>
+            </div>
+            <div class="mui-panel vertical-height-itt-50" id="directions-panel">
             </div>
         </div><!-- /.col-* -->
 
