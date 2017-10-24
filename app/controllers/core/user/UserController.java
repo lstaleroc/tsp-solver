@@ -86,6 +86,12 @@ public class UserController extends Controller {
         return redirect(routes.UserController.loginForm());
     }
 
+    /**
+     * Show error when user's login fail
+     * @param context
+     * @param content
+     * @return
+     */
     public CompletionStage<Result> onAuthFailure(final Http.Context context,
                                                  final Optional<String> content) {
         return this.errorHandler.onClientError(context.request(), Http.Status.FORBIDDEN, "You don't have required permissions.");
